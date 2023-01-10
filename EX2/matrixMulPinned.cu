@@ -72,9 +72,9 @@ int main(int argc, char* argv[]) {
   //DataType *hostC = (DataType*)malloc(sizeof(DataType)*numARows*numBColumns); // The output C matrix
   DataType *resultRef = (DataType*)malloc(sizeof(DataType)*numARows*numBColumns); // The reference result
   
-  cudaMallocHost ((void**) &hostA, size);
-  cudaMallocHost ((void**) &hostB, size);
-  cudaMallocHost ((void**) &hostC, size);
+  cudaMallocHost ((void**) &hostA, sizeof(DataType)*numARows*numAColumns);
+  cudaMallocHost ((void**) &hostB, sizeof(DataType)*numBRows*numBColumns);
+  cudaMallocHost ((void**) &hostC, sizeof(DataType)*numARows*numBColumns);
 
   //@@ Insert code below to allocate GPU memory here
 
