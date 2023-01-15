@@ -20,7 +20,7 @@ cudaError_t checkCuda(cudaError_t result)
 __global__ void vectorAdd(float *A, float *B, float *C, int len, int offset)
 {
     int id = offset +  blockDim.x * blockIdx.x + threadIdx.x;
-    if (id < len) C[id] = A[id] + B[id];
+    if (id < len + offset) C[id] = A[id] + B[id];
 }
 
 
